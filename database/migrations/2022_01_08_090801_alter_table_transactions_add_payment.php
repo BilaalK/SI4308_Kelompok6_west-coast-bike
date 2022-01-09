@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminsTable extends Migration
+class AlterTableTransactionsAddPayment extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('username');
-            $table->string('email');
-            $table->string('password');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->string('payment')->nullable();
+            $table->integer('no_credit')->nullable();
         });
     }
 
@@ -30,6 +26,8 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::table('transactions', function (Blueprint $table) {
+            //
+        });
     }
 }

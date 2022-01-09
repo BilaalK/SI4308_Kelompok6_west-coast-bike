@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController as ControllersProductController;
+use App\Http\Controllers\TransactionController as ControllersTransactionController;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +23,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $products = Product::get();
+    return view('welcome', compact('products'));
 });
+
+Route::get('/check', function(){
+    return Auth::user()->role == 'admin' ? redirect('/home') : redirect('/');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('category', CategoryController::class);
+Route::resource('product', ProductController::class);
+Route::resource('cart', CartController::class);
+Route::resource('transaction', ControllersTransactionController::class);
+Route::resource('user', UserController::class);
+Route::resource('produk', ControllersProductController::class);
+Route::post('/cart/delete/api', [CartController::class, 'deleteApi']);
