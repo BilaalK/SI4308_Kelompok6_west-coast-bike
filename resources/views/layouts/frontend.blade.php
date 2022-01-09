@@ -38,7 +38,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav mx-auto">
+                    <ul class="navbar-nav mx-auto nav-dark">
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('produk.index') }}">{{ __('Produk') }}</a>
