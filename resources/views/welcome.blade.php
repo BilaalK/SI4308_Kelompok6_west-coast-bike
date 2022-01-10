@@ -51,7 +51,7 @@
           <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
               <h1 class="fw-light">Selamat Datang di-</h1>
-              <h1 class="fw-light">West<span class="text-primary">Coast</span>Bike</h1>
+              <h1 class="fw-light"><span class="text-success">WestCoast</span>Bike</h1>
               <p>
                 <a href="#product" class="btn btn-primary my-2">Mulai Belanja</a>
               </p>
