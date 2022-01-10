@@ -83,6 +83,12 @@
             </div>
         </nav>
 
+        <nav class="navbar fixed-bottom navbar-light bg-light">
+            <div class="container-fluid text-center">
+                <div class="position-absolute top-50 start-50 translate-middle"><span class="text-success">WestCoast</span>Bike • Kelompok 6</div>
+            </div>
+        </nav>
+
         <main class="py-4">
             @yield('content')
         </main>
